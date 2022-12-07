@@ -54,12 +54,15 @@ client.on(Events.InteractionCreate, async interaction => {
         await interaction.reply({content: `${error}`, ephemeral: true});
     }
 });
+//Reaction roles from environment variables
 const octolingEmojiID = process.env.OCTOLING_EMOJI_ID;
 const inklingEmojiID = process.env.INKLING_EMOJI_ID;
 const anyaPeekEmojiID = process.env.ANYA_EMOJI_ID;
 const octolingRoleID = process.env.OCTOLING_ROLE_ID;
 const inklingRoleID = process.env.INKLING_ROLE_ID;
 const animeRoleID = process.env.ANIME_ROLE_ID;
+
+//Reaction role functionality that first checks the message ID, then adds the role to the user.
 client.on(Events.MessageReactionAdd, async (messageReaction, user) => {
     if(messageReaction.message.id !== '1049902399202009138' ) return;
 
