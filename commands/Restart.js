@@ -4,7 +4,7 @@ module.exports = {
         .setName('restart')
         .setDescription('Restarts the bot.'),
         async execute(interaction, client) {
-            if(interaction.user.id === '246831418049691650') {
+            if(interaction.user.id === process.env.BOT_OWNER_ID) {
                 await interaction.reply('Restarting...');
                 await client.destroy();
                 process.exit(0);
