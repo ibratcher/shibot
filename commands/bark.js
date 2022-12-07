@@ -5,7 +5,7 @@ module.exports = {
         .setName('speak')
         .setDescription('Barks on command!'),
         async execute(interaction, client) {
-            if(Math.floor((Math.random() * 10)+ 1) === 1) {
+            if((Math.floor((Math.random() * 10)+ 1) === 1) || (interaction.user.id === process.env.BOT_OWNER_ID)) {
                 await interaction.reply('Fine... If you say so... Woof.');
             }
             else {
