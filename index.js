@@ -54,11 +54,6 @@ eventFiles.forEach(file => {
     }
 });
 
-//Log discord.js issues
-client.on('debug', console.log);
-client.on('warn', console.warn);
-client.on('error', console.error);
-
 //Log in to Discord with your client's token
 client.login(process.env.TOKEN).then(() => {
     console.log(`Hello! I am ${client.user.tag}`);
