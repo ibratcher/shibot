@@ -14,24 +14,21 @@ module.exports = {
         switch (reaction.emoji.id) {
 
             case octolingEmojiID: {
-                if (reaction.message.guild.members.cache.get(user.id).roles.cache.has(octolingRoleID)) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(octolingRoleID);
-                    console.log(`Removed Octoling role from ${user.username}`);
-                }
+                await reaction.message.guild.members.cache.get(user.id).roles.remove(octolingRoleID);
+                console.log(`Removed Octoling role from ${user.username}`);
+
                 return;
             }
             case inklingEmojiID: {
-                if (reaction.message.guild.members.cache.get(user.id).roles.cache.has(inklingRoleID)) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(inklingRoleID);
-                    console.log(`Removed Inkling role from ${user.username}`);
-                }
+                await reaction.message.guild.members.cache.get(user.id).roles.remove(inklingRoleID);
+                console.log(`Removed Inkling role from ${user.username}`);
+
                 return;
             }
             case anyaPeekEmojiID: {
-                if (reaction.message.guild.members.cache.get(user.id).roles.cache.has(animeRoleID)) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(animeRoleID);
-                    console.log(`Removed Anime Night Attendee role from ${user.username}`);
-                }
+                await reaction.message.guild.members.cache.get(user.id).roles.remove(animeRoleID);
+                console.log(`Removed Anime Night Attendee role from ${user.username}`);
+
                 return;
             }
             default: {

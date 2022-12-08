@@ -31,7 +31,7 @@ module.exports = {
             case anyaPeekEmojiID: {
                 if(!reaction.message.guild.members.cache.get(user.id).roles.cache.has(animeRoleID)) {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(animeRoleID);
-                    await console.log(`Added Anya role to ${user.username}`);
+                    await console.log(`Added Anime Night Attendee role to ${user.username}`);
                 }
                 return;
             }
