@@ -1,5 +1,5 @@
+const {SlashCommandBuilder} = require("discord.js");
 
-SlashCommandBuilder = require('discord.js').SlashCommandBuilder;
 module.exports = {
         data: new SlashCommandBuilder()
         .setName('speak')
