@@ -1,7 +1,7 @@
 const {EmbedBuilder} = require("discord.js");
 SlashCommandBuilder = require("discord.js").SlashCommandBuilder;
 data = require('../splatoon3.ink-data.js');
-//import currentShop
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("splatnetshop")
