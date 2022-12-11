@@ -1,6 +1,14 @@
 const matchSchedules = "https://splatoon3.ink/data/schedules.json";
 const splatNet = "https://splatoon3.ink/data/gear.json";
-
+/**
+ * @namespace shop.pickupBrand.brand.usualGearPower.desc
+ */
+/**
+ * @namespace shop.pickupBrand.brandGears.gear.additionalGearPowers
+ */
+/**
+ * @namespace shop.pickupBrand.brandGears.gear.primaryGearPower
+ */
 
 module.exports = {
     async fetchShop() {
@@ -11,5 +19,4 @@ module.exports = {
         const data = await fetch(matchSchedules).then(response => response.json());
         return data.data;
     }
-
 }
