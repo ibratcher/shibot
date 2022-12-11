@@ -10,12 +10,13 @@
 /**
  * @namespace GatewayIntentBits.GuildMessageReactions
  */
-const {Client, Collection, GatewayIntentBits} = require('discord.js');
+const {Client, Collection, GatewayIntentBits, Partials} = require('discord.js');
 require('dotenv').config();
 
 // Create a new client instance
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessageReactions],
+    partials: [Partials.Message, Partials.Channel, Partials.Reaction]
 });
 
 const fs = require('node:fs');
@@ -49,6 +50,7 @@ eventFiles.forEach(file => {
     if (event.once) {
         client.once(event.name, (...args) => event.execute(...args));
     } else {
+
         client.on(event.name, (...args) => event.execute(...args));
     }
 });
