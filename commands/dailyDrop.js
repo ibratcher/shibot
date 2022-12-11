@@ -5,7 +5,7 @@ const {fetchShop} = require("../splatoon3.ink-data");
 const {SlashCommandBuilder} = require("discord.js");
 const {pagination, TypesButtons, StylesButton} = require('@devraelfreeze/discordjs-pagination');
 
-async function createEmbeds(shop) {
+function createEmbeds(shop) {
     return [
         new EmbedBuilder()
             .setAuthor({
@@ -62,7 +62,7 @@ module.exports = {
         let shop = await fetchShop();
         await interaction.reply('Creating shop embed...')
         await pagination({
-            embeds: await createEmbeds(shop), // Array of embeds objects
+            embeds: createEmbeds(shop), // Array of embeds objects
             author: interaction.member.user,
             interaction: interaction,
             ephemeral: false,
