@@ -1,4 +1,4 @@
-const { Events } = require('discord.js');
+const {Events} = require('discord.js');
 
 const octolingEmojiID = process.env.OCTOLING_EMOJI_ID;
 const inklingEmojiID = process.env.INKLING_EMOJI_ID;
@@ -9,7 +9,7 @@ const animeRoleID = process.env.ANIME_ROLE_ID;
 module.exports = {
     name: Events.MessageReactionRemove,
     async execute(reaction, user) {
-        if(reaction.message.id !== process.env.REACTION_MSG_ID) return;
+        if (reaction.message.id !== process.env.REACTION_MSG_ID) return;
 
         switch (reaction.emoji.id) {
 

@@ -9,13 +9,12 @@
  */
 /**
  * @namespace GatewayIntentBits.GuildMessageReactions
-  */
-const {Client, Collection, GatewayIntentBits, Partials} = require('discord.js');
+ */
+const {Client, Collection, GatewayIntentBits} = require('discord.js');
 require('dotenv').config();
 
 // Create a new client instance
 const client = new Client({
-    partials: [Partials.Message, Partials.Reaction],
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessageReactions],
 });
 

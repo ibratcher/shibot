@@ -1,4 +1,4 @@
-const { REST, Routes } = require('discord.js');
+const {REST, Routes} = require('discord.js');
 require('dotenv').config();
 const fs = require('node:fs');
 
@@ -13,7 +13,7 @@ for (const file of commandFiles) {
 }
 
 // Construct and prepare an instance of the REST module
-const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
+const rest = new REST({version: '10'}).setToken(process.env.TOKEN);
 
 // and deploy your commands!
 (async () => {
@@ -26,7 +26,7 @@ const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
              * @function Routes.applicationGuildCommands
              */
             Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
-            { body: commands },
+            {body: commands},
         );
 
         console.log(`Successfully reloaded ${data.length} application (/) commands.`);
