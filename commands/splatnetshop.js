@@ -24,7 +24,7 @@ function createPickupBrandEmbed(shop, index) {
         .addFields({name: 'Price:', value: `${shop.pickupBrand.brandGears[index].price} coins`, inline: true})
         .addFields({
             name: 'Additional Gear Slots:',
-            value: `${shop.pickupBrand.brandGears[index].gear.name} has ${shop.pickupBrand.brandGears[index].gear.additionalGearPowers.length} additional gear slots.`,
+            value: `${shop.pickupBrand.brandGears[index].gear.name} has ***${shop.pickupBrand.brandGears[index].gear.additionalGearPowers.length} additional gear slots.***`,
             inline: false
         })
 }
@@ -48,7 +48,7 @@ function createLimitedGearEmbed(shop, index) {
         .addFields({name: 'Price:', value: `${shop.limitedGears[index].price} coins`, inline: true})
         .addFields({
             name: 'Additional Gear Slots:',
-            value: `${shop.limitedGears[index].gear.name} has ${shop.limitedGears[index].gear.additionalGearPowers.length} additional gear slots.`,
+            value: `${shop.limitedGears[index].gear.name} has ***${shop.limitedGears[index].gear.additionalGearPowers.length} additional gear slots.***`,
             inline: false
         })
 }
