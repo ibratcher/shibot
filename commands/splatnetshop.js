@@ -8,11 +8,11 @@ const {pagination, TypesButtons, StylesButton} = require('@devraelfreeze/discord
 function createPickupBrandEmbed(shop, index) {
     return new EmbedBuilder()
         .setAuthor({
-            name: `Daily Drop: ${shop.pickupBrand.brand.name}`,
+            name: shop.pickupBrand.brand.name,
             iconURL: shop.pickupBrand.brandGears[index].gear.brand.image.url
         })
         .setColor('#e4000f')
-        .setTitle(`${shop.pickupBrand.brandGears[index].gear.name}`)
+        .setTitle(`Daily Drop: ${shop.pickupBrand.brandGears[index].gear.name}`)
         .setDescription(`${shop.pickupBrand.brandGears[index].gear.name}'s primary ability is ${shop.pickupBrand.brandGears[index].gear.primaryGearPower.name}.`)
         .setImage(`${shop.pickupBrand.brandGears[index].gear.image.url}`)
         .setThumbnail(shop.pickupBrand.brandGears[index].gear.primaryGearPower.image.url)
@@ -56,23 +56,23 @@ function createLimitedGearEmbed(shop, index) {
 function createEmbeds(shop) {
     let allEmbeds = [
         new EmbedBuilder()
-        .setAuthor({
-            name: `Daily Drop: ${shop.pickupBrand.brand.name}`,
-            iconURL: shop.pickupBrand.brandGears[0].gear.brand.image.url
-        })
-        .setColor('#e4000f')
-        .setTitle('Featured Gear Brand')
-        .setDescription(`Today's featured gear brand is ${shop.pickupBrand.brand.name}.`)
-        .setImage(shop.pickupBrand.image.url)
-        .setThumbnail(shop.pickupBrand.brand.usualGearPower.image.url)
-        .addFields({
-            name: 'Sale Ends:',
-            value: `<t:${(new Date(shop.pickupBrand.saleEndTime).getTime()) / 1000}:R>`
-        })
-        .addFields({
-            name: 'Usual Gear Power',
-            value: `${shop.pickupBrand.brand.name}'s usual gear power is ***${shop.pickupBrand.brand.usualGearPower.name}*** which ***${shop.pickupBrand.brand.usualGearPower.desc.toLowerCase()}***`
-        }),
+            .setAuthor({
+                name: `Daily Drop: ${shop.pickupBrand.brand.name}`,
+                iconURL: shop.pickupBrand.brandGears[0].gear.brand.image.url
+            })
+            .setColor('#e4000f')
+            .setTitle('Featured Gear Brand')
+            .setDescription(`Today's featured gear brand is ${shop.pickupBrand.brand.name}.`)
+            .setImage(shop.pickupBrand.image.url)
+            .setThumbnail(shop.pickupBrand.brand.usualGearPower.image.url)
+            .addFields({
+                name: 'Sale Ends:',
+                value: `<t:${(new Date(shop.pickupBrand.saleEndTime).getTime()) / 1000}:R>`
+            })
+            .addFields({
+                name: 'Usual Gear Power',
+                value: `${shop.pickupBrand.brand.name}'s usual gear power is ***${shop.pickupBrand.brand.usualGearPower.name}*** which ***${shop.pickupBrand.brand.usualGearPower.desc.toLowerCase()}***`
+            }),
         createPickupBrandEmbed(shop, 0),
         createPickupBrandEmbed(shop, 1),
         createPickupBrandEmbed(shop, 2)];
