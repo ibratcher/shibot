@@ -57,11 +57,11 @@ function createEmbeds(shop) {
     let allEmbeds = [
         new EmbedBuilder()
             .setAuthor({
-                name: `Daily Drop: ${shop.pickupBrand.brand.name}`,
+                name: shop.pickupBrand.brand.name,
                 iconURL: shop.pickupBrand.brandGears[0].gear.brand.image.url
             })
             .setColor('#e4000f')
-            .setTitle('Featured Gear Brand')
+            .setTitle('The Daily Drop')
             .setDescription(`Today's featured gear brand is ${shop.pickupBrand.brand.name}.`)
             .setImage(shop.pickupBrand.image.url)
             .setThumbnail(shop.pickupBrand.brand.usualGearPower.image.url)
