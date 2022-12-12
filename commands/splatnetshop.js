@@ -54,35 +54,35 @@ function createLimitedGearEmbed(shop, index) {
 }
 
 function createEmbeds(shop) {
-    return [
-        new EmbedBuilder()
-            .setAuthor({
-                name: `Daily Drop: ${shop.pickupBrand.brand.name}`,
-                iconURL: shop.pickupBrand.brandGears[0].gear.brand.image.url
-            })
-            .setColor('#e4000f')
-            .setTitle('Featured Gear Brand')
-            .setDescription(`Today's featured gear brand is ${shop.pickupBrand.brand.name}.`)
-            .setImage(shop.pickupBrand.image.url)
-            .setThumbnail(shop.pickupBrand.brand.usualGearPower.image.url)
-            .addFields({
-                name: 'Sale Ends:',
-                value: `<t:${(new Date(shop.pickupBrand.saleEndTime).getTime()) / 1000}:R>`
-            })
-            .addFields({
-                name: 'Usual Gear Power',
-                value: `${shop.pickupBrand.brand.name}'s usual gear power is ***${shop.pickupBrand.brand.usualGearPower.name}*** which ***${shop.pickupBrand.brand.usualGearPower.desc.toLowerCase()}***`
-            }),
-        createPickupBrandEmbed(shop, 0),
+    let allEmbeds = [new EmbedBuilder()
+        .setAuthor({
+            name: `Daily Drop: ${shop.pickupBrand.brand.name}`,
+            iconURL: shop.pickupBrand.brandGears[0].gear.brand.image.url
+        })
+        .setColor('#e4000f')
+        .setTitle('Featured Gear Brand')
+        .setDescription(`Today's featured gear brand is ${shop.pickupBrand.brand.name}.`)
+        .setImage(shop.pickupBrand.image.url)
+        .setThumbnail(shop.pickupBrand.brand.usualGearPower.image.url)
+        .addFields({
+            name: 'Sale Ends:',
+            value: `<t:${(new Date(shop.pickupBrand.saleEndTime).getTime()) / 1000}:R>`
+        })
+        .addFields({
+            name: 'Usual Gear Power',
+            value: `${shop.pickupBrand.brand.name}'s usual gear power is ***${shop.pickupBrand.brand.usualGearPower.name}*** which ***${shop.pickupBrand.brand.usualGearPower.desc.toLowerCase()}***`
+        }), createPickupBrandEmbed(shop, 0),
         createPickupBrandEmbed(shop, 1),
-        createPickupBrandEmbed(shop, 2),
-        createLimitedGearEmbed(shop, 0),
+        createPickupBrandEmbed(shop, 2)];
+
+    let limitedEmbeds = [createLimitedGearEmbed(shop, 0),
         createLimitedGearEmbed(shop, 1),
         createLimitedGearEmbed(shop, 2),
         createLimitedGearEmbed(shop, 3),
         createLimitedGearEmbed(shop, 4),
-        createLimitedGearEmbed(shop, 5),
-    ];
+        createLimitedGearEmbed(shop, 5)]
+        .sort((a, b) => a.data.fields[0].value.trim('<t:R>') - b.data.fields[0].value.trim('<t:R>'));
+    return allEmbeds.concat(limitedEmbeds);
 }
 
 module.exports = {
