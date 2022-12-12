@@ -4,11 +4,21 @@ const splatNet = "https://splatoon3.ink/data/gear.json";
  * @namespace shop.pickupBrand.brand.usualGearPower.desc
  */
 /**
+ * @namespace shop.pickupBrand.saleEndTime
+ */
+/**
  * @namespace shop.pickupBrand.brandGears.gear.additionalGearPowers
  */
 /**
  * @namespace shop.pickupBrand.brandGears.gear.primaryGearPower
  */
+/**
+ * @namespace shop.pickupBrand.brandGears.price
+ */
+/**
+ * @namespace shop.limitedGears
+ */
+
 
 module.exports = {
     async fetchShop() {
