@@ -1,12 +1,15 @@
 // noinspection JSCheckFunctionSignatures
 
-const {EmbedBuilder} = require("discord.js");
-const {fetchShop} = require("../splatoon3.ink-data");
-// @ts-ignore
-const {SlashCommandBuilder} = require("discord.js");
-const {pagination, TypesButtons, StylesButton} = require('@devraelfreeze/discordjs-pagination');
+import {ChatInputCommandInteraction} from "discord.js";
 
-function createPickupBrandEmbed(shop, index) {
+import {EmbedBuilder} from "discord.js";
+import {fetchShop} from "../splatoon3.ink-data";
+// @ts-ignore
+import {SlashCommandBuilder} from "discord.js";
+import {pagination, TypesButtons, StylesButton} from '@devraelfreeze/discordjs-pagination';
+
+
+function createPickupBrandEmbed(shop: shop, index: number) {
     return new EmbedBuilder()
         .setAuthor({
             name: shop.pickupBrand.brand.name,
@@ -30,7 +33,7 @@ function createPickupBrandEmbed(shop, index) {
         })
 }
 
-function createLimitedGearEmbed(shop, index) {
+function createLimitedGearEmbed(shop: shop, index: number) {
     return new EmbedBuilder()
         .setAuthor({
             name: shop.limitedGears[index].gear.brand.name,
@@ -54,7 +57,7 @@ function createLimitedGearEmbed(shop, index) {
         })
 }
 
-function createEmbeds(shop) {
+function createEmbeds(shop: shop) {
     let allEmbeds = [
         new EmbedBuilder()
             .setAuthor({
@@ -85,7 +88,8 @@ function createEmbeds(shop) {
         createLimitedGearEmbed(shop, 3),
         createLimitedGearEmbed(shop, 4),
         createLimitedGearEmbed(shop, 5)]
-        .sort((a, b) => a.data.fields[0].value.trim('<t:R>') - b.data.fields[0].value.trim('<t:R>'));
+        // @ts-ignore
+        .sort((a, b) => parseInt(a.data.fields[0].value.trim('<t:R>'))  - parseInt(b.data.fields[0].value.trim('<t:R>')));
     return allEmbeds.concat(limitedEmbeds);
 }
 
@@ -93,11 +97,13 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('splatnetshop')
         .setDescription('Provides information about the current SplatNet Shop!'),
-    async execute(interaction) {
+    async execute(interaction: ChatInputCommandInteraction) {
         let shop = await fetchShop();
         await interaction.reply('Creating shop embed...')
         await pagination({
+            // @ts-ignore
             embeds: createEmbeds(shop), // Array of embeds objects
+            // @ts-ignore
             author: interaction.member.user,
             interaction: interaction,
             ephemeral: false,

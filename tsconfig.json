@@ -2,8 +2,12 @@
   "compilerOptions": {
     "outDir": "./built",
     "allowJs": true,
+    "module": "commonjs",
+    "moduleResolution": "Node",
     "target": "es5",
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules"]

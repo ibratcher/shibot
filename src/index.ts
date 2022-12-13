@@ -32,7 +32,7 @@ for (const file of commandFiles) {
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter((file: string) => file.endsWith('.js'));
 
-eventFiles.forEach((file: any) => {
+eventFiles.forEach((file: string) => {
     const filePath = path.join(eventsPath, file);
     const event = require(filePath);
     console.log(event);

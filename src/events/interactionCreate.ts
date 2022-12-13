@@ -1,9 +1,11 @@
 // @ts-ignore
-const {Events} = require('discord.js');
+import {Events, BaseInteraction} from 'discord.js'
+
+
 
 module.exports = {
     name: Events.InteractionCreate,
-    async execute(interaction) {
+    async execute(interaction: BaseInteraction) {
         if (!interaction.isChatInputCommand()) return;
 
         const command = interaction.client.commands.get(interaction.commandName);

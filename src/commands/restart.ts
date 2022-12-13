@@ -1,11 +1,13 @@
 // @ts-ignore
-const {SlashCommandBuilder} = require("discord.js");
+import {ChatInputCommandInteraction} from "discord.js";
+
+import {SlashCommandBuilder} from "discord.js";
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('restart')
         .setDescription('Restarts the bot.'),
-    async execute(interaction: { user: { id: string | undefined; }; reply: (arg0: string) => any; client: { destroy: () => any; }; }) {
+    async execute(interaction: ChatInputCommandInteraction) {
         if (interaction.user.id === process.env["BOT_OWNER_ID"]) {
             await interaction.reply('Restarting...');
             await interaction.client.destroy();
