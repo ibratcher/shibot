@@ -1,11 +1,7 @@
+// @ts-ignore
 const {Events} = require('discord.js');
 
-const octolingEmojiID = process.env.OCTOLING_EMOJI_ID;
-const inklingEmojiID = process.env.INKLING_EMOJI_ID;
-const anyaPeekEmojiID = process.env.ANYA_EMOJI_ID;
-const octolingRoleID = process.env.OCTOLING_ROLE_ID;
-const inklingRoleID = process.env.INKLING_ROLE_ID;
-const animeRoleID = process.env.ANIME_ROLE_ID;
+
 
 module.exports = {
     name: Events.MessageReactionAdd,

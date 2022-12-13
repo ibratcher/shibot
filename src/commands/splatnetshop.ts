@@ -2,6 +2,7 @@
 
 const {EmbedBuilder} = require("discord.js");
 const {fetchShop} = require("../splatoon3.ink-data");
+// @ts-ignore
 const {SlashCommandBuilder} = require("discord.js");
 const {pagination, TypesButtons, StylesButton} = require('@devraelfreeze/discordjs-pagination');
 

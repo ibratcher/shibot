@@ -1,11 +1,12 @@
+// @ts-ignore
 const {SlashCommandBuilder} = require("discord.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('restart')
         .setDescription('Restarts the bot.'),
-    async execute(interaction) {
-        if (interaction.user.id === process.env.BOT_OWNER_ID) {
+    async execute(interaction: { user: { id: string | undefined; }; reply: (arg0: string) => any; client: { destroy: () => any; }; }) {
+        if (interaction.user.id === process.env["BOT_OWNER_ID"]) {
             await interaction.reply('Restarting...');
             await interaction.client.destroy();
             process.exit(0);

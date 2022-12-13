@@ -1,3 +1,4 @@
+// @ts-ignore
 const {Events} = require('discord.js');
 
 const octolingEmojiID = process.env.OCTOLING_EMOJI_ID;

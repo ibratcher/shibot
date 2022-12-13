@@ -1,4 +1,4 @@
-.env
+built/
 node_modules/
 .idea/
 Shibot.ppk
