@@ -5,7 +5,7 @@ const splatNet = "https://splatoon3.ink/data/gear.json";
         const data = await fetch(splatNet, {cache: "no-cache"}).then(response => response.json());
         return await data.data.gesotown;
     }
-    export async function fetchSchedules() {
+    export async function fetchRegularSchedules() {
         const data = await fetch(matchSchedules, {cache: "no-cache"}).then(response => response.json());
-        return data.data;
+        return data.data.regularSchedules;
     }

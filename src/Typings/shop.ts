@@ -1,81 +1,425 @@
 interface shop {
     pickupBrand: {
         image: {
-            url: string;
-        }
-        saleEndTime: string;
+            url: string
+        },
         brand: {
-            name: string;
-            image: {
-                url: string;
-            }
+            name: string,
             usualGearPower: {
-                name: string;
+                __splatoon3ink_id: string,
+                name: string,
+                desc: string,
                 image: {
-                    url: string;
-                }
-                desc: string;
-            }
-        }
+                    url: string
+                },
+                isEmptySlot: boolean
+            },
+            id: string
+        },
+        saleEndTime: string,
         brandGears: [
             {
-                price: number;
+                id: string,
+                saleEndTime: string,
+                price: number,
                 gear: {
-                    name: string;
-                    image: {
-                        url: string;
-                    }
+                    __splatoon3ink_id: string,
+                    __typename: string,
+                    name: string,
                     primaryGearPower: {
-                        name: string;
+                        __splatoon3ink_id: string,
+                        name: string,
                         image: {
-                            url: string;
+                            url: string
                         }
-                    }
+                    },
                     additionalGearPowers: [
                         {
-                            name: string;
+                            __splatoon3ink_id: string,
+                            name: string,
                             image: {
-                                url: string;
+                                url: string
                             }
                         }
-                    ]
+                    ],
+                    image: {
+                        url: string
+                    },
                     brand: {
-                        name: string;
+                        name: string,
                         image: {
-                            url: string;
+                            url: string
+                        },
+                        id: string
+                    }
+                }
+            },
+            {
+                id: string,
+                saleEndTime: string,
+                price: number,
+                gear: {
+                    __splatoon3ink_id: string,
+                    __typename: string,
+                    name: string,
+                    primaryGearPower: {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
                         }
+                    },
+                    additionalGearPowers: [
+                        {
+                            __splatoon3ink_id: string,
+                            name: string,
+                            image: {
+                                "url": string
+                            }
+                        },
+                        {
+                            __splatoon3ink_id: string,
+                            name: string,
+                            image: {
+                                url: string
+                            }
+                        }
+                    ],
+                    image: {
+                        url: string
+                    },
+                    brand: {
+                        name: string,
+                        image: {
+                            url: string
+                        },
+                        id: string
+                    }
+                }
+            },
+            {
+                id: string,
+                saleEndTime: string,
+                price: number,
+                gear: {
+                    __splatoon3ink_id: string,
+                    __typename: string,
+                    name: string,
+                    primaryGearPower: {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    },
+                    additionalGearPowers: [
+                        {
+                            __splatoon3ink_id: string,
+                            name: string,
+                            image: {
+                                url: string
+                            }
+                        },
+                        {
+                            __splatoon3ink_id: string,
+                            name: string,
+                            image: {
+                                url: string
+                            }
+                        },
+                        {
+                            __splatoon3ink_id: string,
+                            name: string,
+                            image: {
+                                url: string
+                            }
+                        }
+                    ],
+                    image: {
+                        url: string
+                    },
+                    brand: {
+                        name: string,
+                        image: {
+                            url: string
+                        },
+                        id: string
                     }
                 }
             }
-        ]
-    }
+        ],
+        nextBrand: {
+            name: string,
+            image: {
+                url: string
+            },
+            id: string
+        }
+    },
     limitedGears: [
         {
-            price: number;
-            saleEndTime: string;
+            id: string,
+            saleEndTime: string,
+            price: number,
             gear: {
-                name: string;
-                image: {
-                    url: string;
-                }
+                __splatoon3ink_id: string,
+                __typename: string,
+                name: string,
                 primaryGearPower: {
-                    name: string;
+                    __splatoon3ink_id: string,
+                    name: string,
                     image: {
-                        url: string;
+                        url: string
                     }
-                }
+                },
                 additionalGearPowers: [
                     {
-                        name: string;
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    },
+                    {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    },
+                    {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
                     }
-                ]
+                ],
+                image: {
+                    url: string
+                },
                 brand: {
-                    name: string;
+                    name: string,
                     image: {
-                        url: string;
-                    }
+                        url: string
+                    },
+                    id: string
                 }
-
+            }
+        },
+        {
+            id: string,
+            saleEndTime: string,
+            price: number,
+            gear: {
+                __splatoon3ink_id: string,
+                __typename: string,
+                name: string,
+                primaryGearPower: {
+                    __splatoon3ink_id: string,
+                    name: string,
+                    image: {
+                        url: string
+                    }
+                },
+                additionalGearPowers: [
+                    {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    }
+                ],
+                image: {
+                    url: string
+                },
+                brand: {
+                    name: string,
+                    image: {
+                        url: string
+                    },
+                    id: string
+                }
+            }
+        },
+        {
+            id: string,
+            saleEndTime: string,
+            price: number,
+            gear: {
+                __splatoon3ink_id: string,
+                __typename: string,
+                name: string,
+                primaryGearPower: {
+                    __splatoon3ink_id: string,
+                    name: string,
+                    image: {
+                        url: string
+                    }
+                },
+                additionalGearPowers: [
+                    {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    },
+                    {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    }
+                ],
+                image: {
+                    url: string
+                },
+                brand: {
+                    name: string,
+                    image: {
+                        url: string
+                    },
+                    id: string
+                }
+            }
+        },
+        {
+            id: string,
+            saleEndTime: string,
+            price: number,
+            gear: {
+                __splatoon3ink_id: string,
+                __typename: string,
+                name: string,
+                primaryGearPower: {
+                    __splatoon3ink_id: string,
+                    name: string,
+                    image: {
+                        url: string
+                    }
+                },
+                additionalGearPowers: [
+                    {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    },
+                    {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    }
+                ],
+                image: {
+                    url: string
+                },
+                brand: {
+                    name: string,
+                    image: {
+                        url: string
+                    },
+                    id: string
+                }
+            }
+        },
+        {
+            id: string,
+            saleEndTime: string,
+            price: number,
+            gear: {
+                __splatoon3ink_id: string,
+                __typename: string,
+                name: string,
+                primaryGearPower: {
+                    __splatoon3ink_id: string,
+                    name: string,
+                    image: {
+                        url: string
+                    }
+                },
+                additionalGearPowers: [
+                    {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    },
+                    {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    },
+                    {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    }
+                ],
+                image: {
+                    url: string
+                },
+                brand: {
+                    name: string,
+                    image: {
+                        url: string
+                    },
+                    id: string
+                }
+            }
+        },
+        {
+            id: string,
+            saleEndTime: string,
+            price: number,
+            gear: {
+                __splatoon3ink_id: string,
+                __typename: string,
+                name: string,
+                primaryGearPower: {
+                    __splatoon3ink_id: string,
+                    name: string,
+                    image: {
+                        url: string
+                    }
+                },
+                additionalGearPowers: [
+                    {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    },
+                    {
+                        __splatoon3ink_id: string,
+                        name: string,
+                        image: {
+                            url: string
+                        }
+                    }
+                ],
+                image: {
+                    url: string
+                },
+                brand: {
+                    name: string,
+                    image: {
+                        url: string
+                    },
+                    id: string
+                }
             }
         }
     ]
