@@ -1,6 +1,6 @@
-built/
 node_modules/
 .idea/
 Shibot.ppk
 /gear.json
 /schedules.json
+/built/

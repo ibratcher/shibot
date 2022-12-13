@@ -9,6 +9,6 @@ module.exports = {
         .setDescription('Provides information about the server.'),
     async execute(interaction: ChatInputCommandInteraction) {
         // interaction.guild is the object representing the Guild in which the command was run
-        await interaction.reply(`This server is called ${interaction.guild.name} and has ${interaction.guild.memberCount} members.`);
+        await interaction.reply(`This server is called ${interaction.guild!.name} and has ${interaction.guild!.memberCount} members.`);
     },
 };

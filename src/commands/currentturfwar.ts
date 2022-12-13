@@ -11,16 +11,16 @@ async function createTurfEmbed(regularSchedules: regularSchedules, index: number
         .setColor('#e4000f')
         .setURL('https://splatoon3.ink')
         .setTitle(`Current Turf War Maps`)
-        .setDescription(`The next turf war will be on ${regularSchedules.nodes[index].regularMatchSetting.vsStages[0].name} and ${regularSchedules.nodes[index].regularMatchSetting.vsStages[1].name}.`)
-        .setImage(`${regularSchedules.nodes[index].regularMatchSetting.vsStages[0].image.url}`)
+        .setDescription(`The next turf war will be on ${regularSchedules.nodes[index]!.regularMatchSetting.vsStages[0].name} and ${regularSchedules.nodes[index]!.regularMatchSetting.vsStages[1].name}.`)
+        .setImage(`${regularSchedules.nodes[index]!.regularMatchSetting.vsStages[0].image.url}`)
         .addFields({
             name: 'Start Time:',
-            value: `<t:${(new Date(regularSchedules.nodes[index].startTime).getTime()) / 1000}:R>`,
+            value: `<t:${(new Date(regularSchedules.nodes[index]!.startTime).getTime()) / 1000}:R>`,
             inline: true
         })
         .addFields({
             name: 'End Time:',
-            value: `<t:${(new Date(regularSchedules.nodes[index].endTime).getTime()) / 1000}:R>`,
+            value: `<t:${(new Date(regularSchedules.nodes[index]!.endTime).getTime()) / 1000}:R>`,
             inline: true
         })
 

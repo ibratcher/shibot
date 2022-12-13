@@ -13,7 +13,7 @@ for (const file of commandFiles) {
 }
 
 // Construct and prepare an instance of the REST module
-const rest = new REST({version: '10'}).setToken(process.env.TOKEN);
+const rest = new REST({version: '10'}).setToken(process.env['TOKEN']!);
 
 // and deploy your commands!
 (async () => {
@@ -25,7 +25,7 @@ const rest = new REST({version: '10'}).setToken(process.env.TOKEN);
             /**
              * @function Routes.applicationGuildCommands
              */
-            Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
+            Routes.applicationGuildCommands(process.env['CLIENT_ID']!, process.env['GUILD_ID']!),
             {body: commands},
         );
 

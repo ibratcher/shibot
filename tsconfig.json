@@ -1,14 +1,32 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 18 + Strictest",
   "compilerOptions": {
-    "outDir": "./built",
-    "allowJs": true,
+    "lib": [
+      "es2022"
+    ],
     "module": "commonjs",
-    "moduleResolution": "Node",
-    "target": "es5",
+    "target": "es2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
     "noImplicitReturns": true,
-    "noImplicitAny": true,
-    "resolveJsonModule": true
-  },
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "importsNotUsedAsValues": "error",
+    "allowJs": true,
+    "checkJs": true
+  }
+,
   "include": ["./src/**/*"],
   "exclude": ["node_modules"]
 }
