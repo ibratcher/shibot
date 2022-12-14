@@ -1,4 +1,4 @@
-import {EmbedBuilder, SlashCommandBuilder, ChatInputCommandInteraction} from "discord.js";
+import {ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder} from "discord.js";
 import {fetchShop} from "../splatoon3.ink-data";
 import type {shop} from "../Typings/shop";
 import {pagination, StylesButton, TypesButtons} from '@devraelfreeze/discordjs-pagination';
