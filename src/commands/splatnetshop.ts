@@ -1,12 +1,7 @@
-// noinspection JSCheckFunctionSignatures
-
-import type {ChatInputCommandInteraction} from "discord.js";
-
-import {EmbedBuilder} from "discord.js";
+import {EmbedBuilder, SlashCommandBuilder, ChatInputCommandInteraction} from "discord.js";
 import {fetchShop} from "../splatoon3.ink-data";
-// @ts-ignore
-import {SlashCommandBuilder} from "discord.js";
-import {pagination, TypesButtons, StylesButton} from '@devraelfreeze/discordjs-pagination';
+import type {shop} from "../Typings/shop";
+import {pagination, StylesButton, TypesButtons} from '@devraelfreeze/discordjs-pagination';
 
 
 function createPickupBrandEmbed(shop: shop, index: number) {
@@ -89,7 +84,7 @@ function createEmbeds(shop: shop) {
         createLimitedGearEmbed(shop, 4),
         createLimitedGearEmbed(shop, 5)]
         // @ts-ignore
-        .sort((a, b) => parseInt(a.data.fields[0].value.trim('<t:R>'))  - parseInt(b.data.fields[0].value.trim('<t:R>')));
+        .sort((a, b) => parseInt(a.data.fields[0].value.trim('<t:R>')) - parseInt(b.data.fields[0].value.trim('<t:R>')));
     return allEmbeds.concat(limitedEmbeds);
 }
 
@@ -99,7 +94,7 @@ module.exports = {
         .setDescription('Provides information about the current SplatNet Shop!'),
     async execute(interaction: ChatInputCommandInteraction) {
         let shop = await fetchShop();
-        await interaction.reply('Creating shop embed...')
+        await interaction.reply('Creating shop embed...');
         await pagination({
             // @ts-ignore
             embeds: createEmbeds(shop), // Array of embeds objects
@@ -123,7 +118,7 @@ module.exports = {
                     style: StylesButton.Success
                 }
             ]
-        })
+        });
         await interaction.editReply(`Viewing the SplatNet Shop!`)
     }
 }

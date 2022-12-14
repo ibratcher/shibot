@@ -1,6 +1,4 @@
-// @ts-ignore
-import {Events, BaseInteraction} from 'discord.js'
-
+import {BaseInteraction, Events} from 'discord.js'
 
 
 module.exports = {

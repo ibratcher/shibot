@@ -1,4 +1,4 @@
-interface shop {
+export type shop = {
     pickupBrand: {
         brand: {
             name: string;

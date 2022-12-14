@@ -3,11 +3,14 @@
   "display": "Node 18 + Strictest",
   "compilerOptions": {
     "lib": [
-      "es2022"
+      "dom",
+      "esnext"
     ],
-    "module": "commonjs",
-    "target": "es2022",
+    "outDir": "./built",
+    "module": "nodenext",
+    "target": "esnext",
     "strict": true,
+    "watch": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -25,8 +28,11 @@
     "importsNotUsedAsValues": "error",
     "allowJs": true,
     "checkJs": true
-  }
-,
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules"]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

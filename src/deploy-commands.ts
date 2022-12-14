@@ -1,4 +1,5 @@
 import {REST, Routes} from 'discord.js';
+
 require('dotenv').config();
 const fs = require('node:fs');
 
