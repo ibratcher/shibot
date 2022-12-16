@@ -43,6 +43,12 @@ function createFilteredAnarchyEmbeds(schedules: schedules, pageOne: EmbedBuilder
             } else if (index === 1) {
                 if (nodeIndex === 0) {
                     pageTwo.setImage(`${node.vsStages[0].image.url}`)
+                    if(pageTwo.data.image === pageOne.data.image){
+                        pageTwo.setImage(`${node.vsStages[1].image.url}`)
+                    }
+                    else{
+                        pageTwo.setImage(`${node.vsStages[0].image.url}`)
+                    }
                 }
                 pageTwo.addFields({
                     name: `${node.vsRule.name} starts <t:${(new Date(schedules.bankaraSchedules.nodes[counter]!.startTime).getTime()) / 1000}:R>`,
@@ -53,6 +59,12 @@ function createFilteredAnarchyEmbeds(schedules: schedules, pageOne: EmbedBuilder
             } else if (index === 2) {
                 if (nodeIndex === 0) {
                     pageThree.setImage(`${node.vsStages[0].image.url}`)
+                    if(pageThree.data.image === pageTwo.data.image){
+                        pageThree.setImage(`${node.vsStages[1].image.url}`)
+                    }
+                    else{
+                        pageThree.setImage(`${node.vsStages[0].image.url}`)
+                    }
                 }
                 pageThree.addFields({
                     name: `${node.vsRule.name} starts <t:${(new Date(schedules.bankaraSchedules.nodes[counter]!.startTime).getTime()) / 1000}:R>`,
@@ -127,6 +139,12 @@ function createBetterEmbedList(schedules: schedules, interaction: ChatInputComma
                     } else if (index === 1) {
                         if (nodeIndex === 0) {
                             pageTwo.setImage(`${node.regularMatchSetting.vsStages[0].image.url}`)
+                            if(pageTwo.data.image === pageOne.data.image){
+                                pageTwo.setImage(`${node.regularMatchSetting.vsStages[1].image.url}`)
+                            }
+                            else{
+                                pageTwo.setImage(`${node.regularMatchSetting.vsStages[0].image.url}`)
+                            }
                         }
                         pageTwo.addFields({
                             name: `Starts <t:${(new Date(node!.startTime).getTime()) / 1000}:R>`,
@@ -136,6 +154,12 @@ function createBetterEmbedList(schedules: schedules, interaction: ChatInputComma
                     } else if (index === 2) {
                         if (nodeIndex === 0) {
                             pageThree.setImage(`${node.regularMatchSetting.vsStages[0].image.url}`)
+                            if(pageThree.data.image === pageTwo.data.image) {
+                                pageThree.setImage(`${node.regularMatchSetting.vsStages[1].image.url}`)
+                            }
+                            else{
+                                pageThree.setImage(`${node.regularMatchSetting.vsStages[0].image.url}`)
+                            }
                         }
                         pageThree.addFields({
                             name: `Starts <t:${(new Date(node!.startTime).getTime()) / 1000}:R>`,
