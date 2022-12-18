@@ -21,7 +21,7 @@ function createFilteredAnarchyEmbeds(schedules: schedules, pageOne: EmbedBuilder
     let counter = 0;
     chunks.forEach((chunk, index) => {
         chunk.forEach((node: any, nodeIndex: number) => {
-            console.log(counter);
+
             if (index === 0) {
 
                 if (nodeIndex === 0) {
@@ -102,7 +102,7 @@ function createSalmonEmbed(page: EmbedBuilder, index: number, matches: any[]) {
         .addFields({name: 'Weapons', value: `${matches[index].setting.weapons[0].name}, ${matches[index].setting.weapons[1].name}, ${matches[index].setting.weapons[2].name} and ${matches[index].setting.weapons[3].name}`, inline: false})
         .addFields({name: 'Starts', value: `<t:${(new Date(matches[index].startTime).getTime()) / 1000}:R>`, inline: true})
         .addFields({name: 'Ends', value: `<t:${(new Date(matches[index].endTime).getTime()) / 1000}:R>`, inline: true})
-    console.log(page)
+
 }
 
 function createBetterEmbedList(schedules: schedules, interaction: ChatInputCommandInteraction, mode: string) {
@@ -131,7 +131,7 @@ function createBetterEmbedList(schedules: schedules, interaction: ChatInputComma
     switch (mode) {
         case 'turf': {
             let matches = schedules.regularSchedules.nodes;
-            console.log(matches.length)
+
             let chunks = splitToChunks(matches, 3);
             pageOne
                 .setColor('#d6dc00')
@@ -207,7 +207,7 @@ function createBetterEmbedList(schedules: schedules, interaction: ChatInputComma
                     }
                 })
             })
-            console.log(matches.length)
+
             let chunks = splitToChunks(matches, 3);
             pageOne
                 .setColor('#f6490f')
@@ -234,7 +234,7 @@ function createBetterEmbedList(schedules: schedules, interaction: ChatInputComma
                     }
                 })
             })
-            console.log(matches.length)
+
             let chunks = splitToChunks(matches, 3);
             pageOne
                 .setColor('#f6490f')
@@ -324,13 +324,11 @@ function createBetterEmbedList(schedules: schedules, interaction: ChatInputComma
             let pageFour = new EmbedBuilder()
             let pageFive = new EmbedBuilder()
 
-            console.log('creating salmon embeds')
             createSalmonEmbed(pageOne, 0, matches)
             createSalmonEmbed(pageTwo, 1, matches)
             createSalmonEmbed(pageThree, 2, matches)
             createSalmonEmbed(pageFour, 3, matches)
             createSalmonEmbed(pageFive, 4, matches)
-            console.log([pageOne, pageTwo, pageThree, pageFour, pageFive])
            return [pageOne, pageTwo, pageThree, pageFour, pageFive]
         }
     }
@@ -402,7 +400,6 @@ module.exports = {
             }
 
             case 'anarchy': {
-                console.log(interaction.options.getString('mode'))
                 await interaction.reply('Creating anarchy embed...')
                 await pagination({
                     //@ts-ignore
