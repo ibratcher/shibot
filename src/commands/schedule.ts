@@ -43,10 +43,9 @@ function createFilteredAnarchyEmbeds(schedules: schedules, pageOne: EmbedBuilder
             } else if (index === 1) {
                 if (nodeIndex === 0) {
                     pageTwo.setImage(`${node.vsStages[0].image.url}`)
-                    if(pageTwo.data.image === pageOne.data.image){
+                    if (pageTwo.data.image === pageOne.data.image) {
                         pageTwo.setImage(`${node.vsStages[1].image.url}`)
-                    }
-                    else{
+                    } else {
                         pageTwo.setImage(`${node.vsStages[0].image.url}`)
                     }
                 }
@@ -59,10 +58,9 @@ function createFilteredAnarchyEmbeds(schedules: schedules, pageOne: EmbedBuilder
             } else if (index === 2) {
                 if (nodeIndex === 0) {
                     pageThree.setImage(`${node.vsStages[0].image.url}`)
-                    if(pageThree.data.image === pageTwo.data.image){
+                    if (pageThree.data.image === pageTwo.data.image) {
                         pageThree.setImage(`${node.vsStages[1].image.url}`)
-                    }
-                    else{
+                    } else {
                         pageThree.setImage(`${node.vsStages[0].image.url}`)
                     }
                 }
@@ -75,6 +73,36 @@ function createFilteredAnarchyEmbeds(schedules: schedules, pageOne: EmbedBuilder
             }
         })
     })
+}
+
+function createSalmonEmbed(page: EmbedBuilder, index: number, matches: any[]) {
+    let isRandomRotation = false;
+    if(matches[index].setting.weapons[0].name === "Random") {
+        isRandomRotation = true;
+    }
+    if(index === 0) {
+        if(isRandomRotation) {
+            page.setTitle(`Current: ${matches[index].setting.coopStage.name}\nRANDOM WEAPON ROTATION`)
+        }
+        else {
+            page.setTitle(`Current: ${matches[index].setting.coopStage.name}`)
+        }
+    }
+    else{
+        if(isRandomRotation) {
+            page.setTitle(`${matches[index].setting.coopStage.name}\nRANDOM WEAPON ROTATION`)
+        }
+        else {
+            page.setTitle(`Current: ${matches[index].setting.coopStage.name}`)
+        }
+    }
+    page.setColor('#ff5033')
+        .setThumbnail('https://splatoon3.ink/assets/little-buddy.445c3c88.png')
+        .setImage(`${matches[index].setting.coopStage.image.url}`)
+        .addFields({name: 'Weapons', value: `${matches[index].setting.weapons[0].name}, ${matches[index].setting.weapons[1].name}, ${matches[index].setting.weapons[2].name} and ${matches[index].setting.weapons[3].name}`, inline: false})
+        .addFields({name: 'Starts', value: `<t:${(new Date(matches[index].startTime).getTime()) / 1000}:R>`, inline: true})
+        .addFields({name: 'Ends', value: `<t:${(new Date(matches[index].endTime).getTime()) / 1000}:R>`, inline: true})
+    console.log(page)
 }
 
 function createBetterEmbedList(schedules: schedules, interaction: ChatInputCommandInteraction, mode: string) {
@@ -139,10 +167,9 @@ function createBetterEmbedList(schedules: schedules, interaction: ChatInputComma
                     } else if (index === 1) {
                         if (nodeIndex === 0) {
                             pageTwo.setImage(`${node.regularMatchSetting.vsStages[0].image.url}`)
-                            if(pageTwo.data.image === pageOne.data.image){
+                            if (pageTwo.data.image === pageOne.data.image) {
                                 pageTwo.setImage(`${node.regularMatchSetting.vsStages[1].image.url}`)
-                            }
-                            else{
+                            } else {
                                 pageTwo.setImage(`${node.regularMatchSetting.vsStages[0].image.url}`)
                             }
                         }
@@ -154,10 +181,9 @@ function createBetterEmbedList(schedules: schedules, interaction: ChatInputComma
                     } else if (index === 2) {
                         if (nodeIndex === 0) {
                             pageThree.setImage(`${node.regularMatchSetting.vsStages[0].image.url}`)
-                            if(pageThree.data.image === pageTwo.data.image) {
+                            if (pageThree.data.image === pageTwo.data.image) {
                                 pageThree.setImage(`${node.regularMatchSetting.vsStages[1].image.url}`)
-                            }
-                            else{
+                            } else {
                                 pageThree.setImage(`${node.regularMatchSetting.vsStages[0].image.url}`)
                             }
                         }
@@ -225,6 +251,86 @@ function createBetterEmbedList(schedules: schedules, interaction: ChatInputComma
             createFilteredAnarchyEmbeds(schedules, pageOne, pageTwo, pageThree, chunks)
             break;
         }
+        case 'x-battles': {
+            let matches = schedules.xSchedules.nodes;
+            let chunks = splitToChunks(matches, 3);
+            pageOne
+                .setColor('#12da9b')
+                .setTitle(`All Current & Upcoming X Battle Maps`)
+                .setThumbnail('https://cdn.wikimg.net/en/splatoonwiki/images/e/e9/S3XBattleLogo.png')
+            pageTwo
+                .setColor('#12da9b')
+                .setTitle(`All Current & Upcoming X Battle Maps`)
+                .setThumbnail('https://cdn.wikimg.net/en/splatoonwiki/images/e/e9/S3XBattleLogo.png')
+            pageThree
+                .setColor('#12da9b')
+                .setTitle(`All Current & Upcoming X Battle Maps`)
+                .setThumbnail('https://cdn.wikimg.net/en/splatoonwiki/images/e/e9/S3XBattleLogo.png')
+
+            chunks.forEach((chunk, index) => {
+                chunk.forEach((node: any, nodeIndex: number) => {
+                    if (index === 0) {
+
+                        if (nodeIndex === 0) {
+                            pageOne.addFields({
+                                name: `Current: Ends <t:${(new Date(node!.endTime).getTime()) / 1000}:R>`,
+                                value: `${node.xMatchSetting.vsStages[0].name} and ${node.xMatchSetting.vsStages[1].name}`,
+                                inline: false
+                            })
+                            pageOne.setImage(`${node.xMatchSetting.vsStages[0].image.url}`)
+                        } else {
+                            pageOne.addFields({
+                                name: `Starts <t:${(new Date(node!.startTime).getTime()) / 1000}:R>`,
+                                value: `${node.xMatchSetting.vsStages[0].name} and ${node.xMatchSetting.vsStages[1].name}`,
+                                inline: false
+                            })
+                        }
+                    } else if (index === 1) {
+                        if (nodeIndex === 0) {
+                            pageTwo.setImage(`${node.xMatchSetting.vsStages[0].image.url}`)
+                            if (pageTwo.data.image === pageOne.data.image) {
+                                pageTwo.setImage(`${node.xMatchSetting.vsStages[1].image.url}`)
+                            } else {
+                                pageTwo.setImage(`${node.xMatchSetting.vsStages[0].image.url}`)
+                            }
+                        }
+                        pageTwo.addFields({
+                            name: `Starts <t:${(new Date(node!.startTime).getTime()) / 1000}:R>`,
+                            value: `${node.xMatchSetting.vsStages[0].name} and ${node.xMatchSetting.vsStages[1].name}`,
+                            inline: false
+                        })
+                    } else if (index === 2) {
+                        if (nodeIndex === 0) {
+                            pageThree.setImage(`${node.xMatchSetting.vsStages[0].image.url}`)
+                            if (pageThree.data.image === pageTwo.data.image) {
+                                pageThree.setImage(`${node.xMatchSetting.vsStages[1].image.url}`)
+                            } else {
+                                pageThree.setImage(`${node.xMatchSetting.vsStages[0].image.url}`)
+                            }
+                        }
+                        pageThree.addFields({
+                            name: `Starts <t:${(new Date(node!.startTime).getTime()) / 1000}:R>`,
+                            value: `${node.xMatchSetting.vsStages[0].name} and ${node.xMatchSetting.vsStages[1].name}`,
+                            inline: false
+                        })
+                    }
+                })
+            })
+            break;
+        }
+        case 'salmon-run': {
+            let matches = schedules.coopGroupingSchedule.regularSchedules.nodes
+
+            let pageFour = new EmbedBuilder()
+            let pageFive = new EmbedBuilder()
+
+            createSalmonEmbed(pageOne, 0, matches)
+            createSalmonEmbed(pageTwo, 1, matches)
+            createSalmonEmbed(pageThree, 2, matches)
+            createSalmonEmbed(pageFour, 3, matches)
+            createSalmonEmbed(pageFive, 4, matches)
+           return [pageOne, pageTwo, pageThree, pageFour, pageFive]
+        }
     }
     return [pageOne, pageTwo, pageThree]
 }
@@ -248,7 +354,17 @@ module.exports = {
                         .addChoices(
                             {name: 'Open', value: 'open'},
                             {name: 'Series', value: 'series'}
-                        ))),
+                        )))
+        .addSubcommand(
+            new SlashCommandSubcommandBuilder()
+                .setName('x-battles')
+                .setDescription('Shows all current & upcoming x battles')
+        )
+        .addSubcommand(
+            new SlashCommandSubcommandBuilder()
+                .setName('salmon-run')
+                .setDescription('Shows all current & upcoming Salmon Run Maps')
+        ),
     async execute(interaction: ChatInputCommandInteraction) {
         const schedules = await fetchSchedules();
         const sub = interaction.options.getSubcommand();
@@ -262,7 +378,7 @@ module.exports = {
                     author: interaction.member!.user,
                     interaction: interaction,
                     ephemeral: false,
-                    time: 60000, // 40 seconds
+                    time: 60000, // 60 seconds
                     disableButtons: false, // Remove buttons after timeout
                     fastSkip: true,
                     pageTravel: false,
@@ -293,7 +409,7 @@ module.exports = {
                     author: interaction.member!.user,
                     interaction: interaction,
                     ephemeral: false,
-                    time: 60000, // 40 seconds
+                    time: 60000, // 60 seconds
                     disableButtons: false, // Remove buttons after timeout
                     fastSkip: true,
                     pageTravel: false,
@@ -313,8 +429,65 @@ module.exports = {
                 await interaction.editReply('Viewing anarchy embed...');
                 return;
             }
+            case 'x-battles': {
+                await interaction.reply('Creating x battles embed...')
+                await pagination({
+                    //@ts-ignore
+                    embeds: createBetterEmbedList(schedules, interaction, 'x-battles'),
+                    //@ts-ignore
+                    author: interaction.member!.user,
+                    interaction: interaction,
+                    ephemeral: false,
+                    time: 60000, // 60 seconds
+                    disableButtons: false, // Remove buttons after timeout
+                    fastSkip: true,
+                    pageTravel: false,
+                    buttons: [
+                        {
+                            value: TypesButtons.previous,
+                            label: 'Previous Page',
+                            style: StylesButton.Danger
+                        },
+                        {
+                            value: TypesButtons.next,
+                            label: 'Next Page',
+                            style: StylesButton.Success
+                        }
+                    ]
+                });
+                await interaction.editReply('Viewing x battles embed...');
+                return;
+            }
+            case 'salmon-run': {
+                await interaction.reply('Creating salmon run embed...')
+                await pagination({
+                    //@ts-ignore
+                    embeds: createBetterEmbedList(schedules, interaction, 'salmon-run'),
+                    //@ts-ignore
+                    author: interaction.member!.user,
+                    interaction: interaction,
+                    ephemeral: false,
+                    time: 60000, // 60 seconds
+                    disableButtons: false, // Remove buttons after timeout
+                    fastSkip: true,
+                    pageTravel: false,
+                    buttons: [
+                        {
+                            value: TypesButtons.previous,
+                            label: 'Previous Page',
+                            style: StylesButton.Danger
+                        },
+                        {
+                            value: TypesButtons.next,
+                            label: 'Next Page',
+                            style: StylesButton.Success
+                        }
+                    ]
+                });
+                await interaction.editReply('Viewing salmon run embed...');
+                return;
+            }
         }
     }
 }
-
 
