@@ -90,4 +90,79 @@ export type schedules = {
                 }
             }]
     }
+    xSchedules: {
+        nodes: [
+            {
+                startTime: string;
+                endTime: string;
+                xMatchSetting: {
+                    vsStages: [
+                        {
+                            name: string;
+                            image: {
+                                url: string;
+
+                            }
+                        },
+                        {
+                            name: string;
+                            image: {
+                                url: string;
+                            }
+                        }
+                    ]
+                    vsRule: {
+                        name: string;
+                    }
+                }
+            }
+        ]
+    }
+    coopGroupingSchedule: {
+        regularSchedules: {
+            nodes: [
+                {
+                    startTime: string;
+                    endTime: string;
+                    setting: {
+                        coopStage: {
+                            name: string;
+                            thumbnailImage: {
+                                url: string;
+                            }
+                            image: {
+                                url: string;
+                            }
+                        }
+                        weapons: [
+                            {
+                                name: string;
+                                image: {
+                                    url: string;
+                                }
+                            },
+                            {
+                                name: string;
+                                image: {
+                                    url: string;
+                                }
+                            },
+                            {
+                                name: string;
+                                image: {
+                                    url: string;
+                                }
+                            },
+                            {
+                                name: string;
+                                image: {
+                                    url: string;
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
 }
