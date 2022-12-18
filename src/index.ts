@@ -1,4 +1,3 @@
-
 const {Client, Collection, GatewayIntentBits, Partials} = require('discord.js');
 require('dotenv').config();
 
@@ -8,8 +7,8 @@ const client = new Client({
     partials: [Partials.Message, Partials.Channel, Partials.Reaction]
 });
 
-import fs = require('node:fs');
-import path = require('node:path');
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 client.commands = new Collection();
 
@@ -20,6 +19,7 @@ const commandFiles = fs.readdirSync(commandsPath).filter((file: string) => file.
 for (const file of commandFiles) {
     const filePath = path.join(commandsPath, file);
     const command = require(filePath);
+
     // Set a new item in the Collection with the key as the command name and the value as the exported module
     if ('data' in command && 'execute' in command) {
         client.commands.set(command.data.name, command);

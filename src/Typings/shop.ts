@@ -1,9 +1,5 @@
-interface shop {
+export type shop = {
     pickupBrand: {
-        image: {
-            url: string;
-        }
-        saleEndTime: string;
         brand: {
             name: string;
             image: {
@@ -17,11 +13,21 @@ interface shop {
                 desc: string;
             }
         }
+        image: {
+            url: string;
+        }
+        saleEndTime: string;
         brandGears: [
             {
                 price: number;
                 gear: {
                     name: string;
+                    brand: {
+                        name: string;
+                        image: {
+                            url: string;
+                        }
+                    }
                     image: {
                         url: string;
                     }
@@ -34,27 +40,26 @@ interface shop {
                     additionalGearPowers: [
                         {
                             name: string;
-                            image: {
-                                url: string;
-                            }
+
                         }
                     ]
-                    brand: {
-                        name: string;
-                        image: {
-                            url: string;
-                        }
-                    }
                 }
             }
         ]
+
     }
     limitedGears: [
         {
-            price: number;
             saleEndTime: string;
+            price: number;
             gear: {
                 name: string;
+                brand: {
+                    name: string;
+                    image: {
+                        url: string;
+                    }
+                }
                 image: {
                     url: string;
                 }
@@ -67,16 +72,11 @@ interface shop {
                 additionalGearPowers: [
                     {
                         name: string;
+
                     }
                 ]
-                brand: {
-                    name: string;
-                    image: {
-                        url: string;
-                    }
-                }
-
             }
+
         }
     ]
 }
