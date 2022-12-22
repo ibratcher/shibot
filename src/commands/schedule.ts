@@ -93,11 +93,12 @@ function createSalmonEmbed(page: EmbedBuilder, index: number, matches: any[]) {
             page.setTitle(`${matches[index].setting.coopStage.name}\nRANDOM WEAPON ROTATION`)
         }
         else {
-            page.setTitle(`Current: ${matches[index].setting.coopStage.name}`)
+            page.setTitle(`${matches[index].setting.coopStage.name}`)
         }
     }
     page.setColor('#ff5033')
         .setThumbnail('https://splatoon3.ink/assets/little-buddy.445c3c88.png')
+        .setURL('https://splatoon3.ink')
         .setImage(`${matches[index].setting.coopStage.image.url}`)
         .addFields({name: 'Weapons', value: `${matches[index].setting.weapons[0].name}, ${matches[index].setting.weapons[1].name}, ${matches[index].setting.weapons[2].name} and ${matches[index].setting.weapons[3].name}`, inline: false})
         .addFields({name: 'Starts', value: `<t:${(new Date(matches[index].startTime).getTime()) / 1000}:R>`, inline: true})
