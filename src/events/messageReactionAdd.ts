@@ -1,8 +1,11 @@
 import {Events, MessageReaction, User} from "discord.js";
 
-const octolingEmojiID = process.env["OCTOLING_EMOJI_ID"], inklingEmojiID = process.env["INKLING_EMOJI_ID"],
-    anyaPeekEmojiID = process.env["ANYA_EMOJI_ID"], octolingRoleID = process.env["OCTOLING_ROLE_ID"],
-    inklingRoleID = process.env["INKLING_ROLE_ID"], animeRoleID = process.env["ANIME_ROLE_ID"];
+const octolingEmojiID = process.env["OCTOLING_EMOJI_ID"],
+    octolingRoleID = process.env["OCTOLING_ROLE_ID"],
+    inklingEmojiID = process.env["INKLING_EMOJI_ID"],
+    inklingRoleID = process.env["INKLING_ROLE_ID"],
+    anyaPeekEmojiID = process.env["ANYA_EMOJI_ID"],
+    animeRoleID = process.env["ANIME_ROLE_ID"];
 
 module.exports = {
     name: Events.MessageReactionAdd,
