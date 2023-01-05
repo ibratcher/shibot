@@ -32,36 +32,32 @@ module.exports = {
             case consts.switchEmojiID: {
                 if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.switchRoleID!)) {
                     await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.switchRoleID!);
-                    console.log();
+                    console.log(`Added Switch role to ${user.username}`);
                 }
                 return;
             }
             case consts.xboxEmojiID: {
                 if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.xboxRoleID!)) {
                     await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.xboxRoleID!);
-                    console.log();
-                }
+                    console.log(`Added Xbox role to ${user.username}`);                }
                 return;
             }
             case consts.playstationEmojiID: {
                 if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.playstationRoleID!)) {
                     await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.playstationRoleID!);
-                    console.log();
-                }
+                    console.log(`Added Playstation role to ${user.username}`);                }
                 return;
             }
             case consts.mobileEmojiID: {
                 if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.mobileRoleID!)) {
                     await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.mobileRoleID!);
-                    console.log();
-                }
+                    console.log(`Added Mobile role to ${user.username}`);                }
                 return;
             }
             case consts.pcEmojiID: {
                 if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.pcRoleID!)) {
                     await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.pcRoleID!);
-                    console.log();
-                }
+                    console.log(`Added PC role to ${user.username}`);                }
                 return;
             }
             default: {
