@@ -1,14 +1,10 @@
 import {Events, MessageReaction, User} from "discord.js";
-
-const octolingEmojiID = process.env["OCTOLING_EMOJI_ID"], inklingEmojiID = process.env["INKLING_EMOJI_ID"],
-    anyaPeekEmojiID = process.env["ANYA_EMOJI_ID"], octolingRoleID = process.env["OCTOLING_ROLE_ID"],
-    inklingRoleID = process.env["INKLING_ROLE_ID"], animeRoleID = process.env["ANIME_ROLE_ID"];
+import {octolingEmojiID, octolingRoleID, inklingEmojiID, inklingRoleID, anyaPeekEmojiID, animeRoleID, switchEmojiID, switchRoleID, xboxEmojiID, xboxRoleID} from "./messageReactionImports";
 
 module.exports = {
     name: Events.MessageReactionRemove,
     async execute(reaction: MessageReaction, user: User) {
-        if (reaction.message.id !== process.env["REACTION_MSG_ID"]) return;
-
+        if (reaction.message.id !== process.env["EVENTS_MSG_ID"] && reaction.message.id !== process.env["GENDER_MSG_ID"] && reaction.message.id !== process.env["SEXUALITY_MSG_ID"]) return;
         switch (reaction.emoji.id) {
 
             case octolingEmojiID: {
@@ -29,6 +25,32 @@ module.exports = {
 
                 return;
             }
+            case switchEmojiID: {
+                await reaction.message.guild!.members.cache.get(user.id)!.roles.remove(switchRoleID!);
+                console.log(`Removed Switch role from ${user.username}`);
+                return;
+            }
+            case xboxEmojiID: {
+                await reaction.message.guild!.members.cache.get(user.id)!.roles.remove(xboxRoleID!);
+                console.log(`Removed Xbox role from ${user.username}`);
+                return;
+            }
+            case playstationEmojiID: {
+                await reaction.message.guild!.members.cache.get(user.id)!.roles.remove(playstationRoleID!);
+                console.log(`Removed Playstation role from ${user.username}`);
+                return;
+            }
+            case mobileEmojiID: {
+                await reaction.message.guild!.members.cache.get(user.id)!.roles.remove(mobileRoleID!);
+                console.log(`Removed mobile role from ${user.username}`)
+                return;
+            }
+            case pcEmojiID: {
+                await reaction.message.guild!.members.cache.get(user.id)!.roles.remove(pcRoleID!);
+                console.log(`Removed PC role from ${user.username}`)
+                return;
+            }
+
             default: {
                 console.log('No role found.');
                 return;
