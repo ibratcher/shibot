@@ -17,3 +17,8 @@ export const switchEmojiID = process.env["SWITCH_EMOJI_ID"],
     mobileRoleID = process.env["MOBILE_ROLE_ID"],
     pcEmojiID = process.env["PC_EMOJI_ID"],
     pcRoleID = process.env["PC_ROLE_ID"];
+
+export const maleRoleID = process.env["MALE_ROLE_ID"],
+    femaleRoleID = process.env["FEMALE_ROLE_ID"],
+    transRoleID = process.env["TRANS_ROLE_ID"],
+    rnsGenderRoleID = process.env["RNS_GENDER_ROLE_ID"];
