@@ -30,7 +30,7 @@ for (const file of commandFiles) {
 
 //Event handler section
 const eventsPath = path.join(__dirname, 'events');
-const eventFiles = fs.readdirSync(eventsPath).filter((file: string) => file.endsWith('.js'));
+const eventFiles = fs.readdirSync(eventsPath).filter((file: string) => !file.endsWith('Imports.js') && file.endsWith('.js'));
 
 eventFiles.forEach((file: string) => {
     const filePath = path.join(eventsPath, file);
