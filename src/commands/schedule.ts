@@ -106,6 +106,7 @@ function createSalmonEmbed(page: EmbedBuilder, index: number, matches: any[]) {
 
 }
 
+//TODO: Fix missing embeds.
 function createBetterEmbedList(schedules: schedules, interaction: ChatInputCommandInteraction, mode: string) {
     let pageOne = new EmbedBuilder()
         .setAuthor({
@@ -132,7 +133,8 @@ function createBetterEmbedList(schedules: schedules, interaction: ChatInputComma
     switch (mode) {
         case 'turf': {
             let matches = schedules.regularSchedules.nodes;
-
+ // @ts-ignore
+            console.log(matches[5].regularMatchSetting.vsStages[0])
             let chunks = splitToChunks(matches, 3);
             pageOne
                 .setColor('#d6dc00')
@@ -149,6 +151,7 @@ function createBetterEmbedList(schedules: schedules, interaction: ChatInputComma
 
             chunks.forEach((chunk, index) => {
                 chunk.forEach((node: any, nodeIndex: number) => {
+                    console.log(node.vsStages[0])
                     if (index === 0) {
 
                         if (nodeIndex === 0) {
