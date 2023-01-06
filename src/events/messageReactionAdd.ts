@@ -1,6 +1,6 @@
 import {Events, MessageReaction, User} from "discord.js";
 //Events and game role menu environment variables
-import * as consts from "./messageReactionImports";
+import * as roleConstants from "./messageReactionImports";
 
 module.exports = {
     name: Events.MessageReactionAdd,
@@ -9,32 +9,32 @@ module.exports = {
 
         if (!reaction.emoji.id) {
             if (reaction.emoji.name === "🖥️") {
-                await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.pcRoleID!);
+                await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.pcRoleID!);
                 console.log(`Added PC role to ${user.username}`);
                 return;
             }
             if (reaction.emoji.name === "📱") {
-                await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.mobileRoleID!);
+                await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.mobileRoleID!);
                 console.log(`Added mobile role to ${user.username}`);
                 return;
             }
             if(reaction.emoji.name === "♂️") {
-                await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.maleRoleID!);
+                await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.maleRoleID!);
                 console.log(`Added male role to ${user.username}`);
                 return;
             }
             if(reaction.emoji.name === "♀️") {
-                await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.femaleRoleID!);
+                await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.femaleRoleID!);
                 console.log(`Added female role to ${user.username}`);
                 return;
             }
             if (reaction.emoji.name === "🏳️‍⚧️") {
-                await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.transRoleID!);
+                await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.transRoleID!);
                 console.log(`Added trans role to ${user.username}`);
                 return;
             }
             if (reaction.emoji.name === "❔") {
-                await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.rnsGenderRoleID!);
+                await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.rnsGenderRoleID!);
                 console.log(`Added rather not say - Gender role to ${user.username}`);
                 return;
             }
@@ -42,58 +42,58 @@ module.exports = {
         } else {
             switch (reaction.emoji.id) {
 
-                case consts.octolingEmojiID: {
-                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.octolingRoleID!)) {
-                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.octolingRoleID!);
+                case roleConstants.octolingEmojiID: {
+                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(roleConstants.octolingRoleID!)) {
+                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.octolingRoleID!);
                         console.log(`Added Octoling role to ${user.username}`);
                     }
                     return;
                 }
-                case consts.inklingEmojiID: {
-                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.inklingRoleID!)) {
-                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.inklingRoleID!);
+                case roleConstants.inklingEmojiID: {
+                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(roleConstants.inklingRoleID!)) {
+                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.inklingRoleID!);
                         console.log(`Added Inkling role to ${user.username}`);
                     }
                     return;
                 }
-                case consts.anyaPeekEmojiID: {
-                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.animeRoleID!)) {
-                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.animeRoleID!);
+                case roleConstants.anyaPeekEmojiID: {
+                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(roleConstants.animeRoleID!)) {
+                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.animeRoleID!);
                         console.log(`Added Anime Night Attendee role to ${user.username}`);
                     }
                     return;
                 }
-                case consts.switchEmojiID: {
-                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.switchRoleID!)) {
-                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.switchRoleID!);
+                case roleConstants.switchEmojiID: {
+                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(roleConstants.switchRoleID!)) {
+                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.switchRoleID!);
                         console.log(`Added Switch role to ${user.username}`);
                     }
                     return;
                 }
-                case consts.xboxEmojiID: {
-                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.xboxRoleID!)) {
-                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.xboxRoleID!);
+                case roleConstants.xboxEmojiID: {
+                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(roleConstants.xboxRoleID!)) {
+                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.xboxRoleID!);
                         console.log(`Added Xbox role to ${user.username}`);
                     }
                     return;
                 }
-                case consts.playstationEmojiID: {
-                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.playstationRoleID!)) {
-                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.playstationRoleID!);
+                case roleConstants.playstationEmojiID: {
+                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(roleConstants.playstationRoleID!)) {
+                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.playstationRoleID!);
                         console.log(`Added Playstation role to ${user.username}`);
                     }
                     return;
                 }
-                case consts.mobileEmojiID: {
-                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.mobileRoleID!)) {
-                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.mobileRoleID!);
+                case roleConstants.mobileEmojiID: {
+                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(roleConstants.mobileRoleID!)) {
+                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.mobileRoleID!);
                         console.log(`Added Mobile role to ${user.username}`);
                     }
                     return;
                 }
-                case consts.pcEmojiID: {
-                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.pcRoleID!)) {
-                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.pcRoleID!);
+                case roleConstants.pcEmojiID: {
+                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(roleConstants.pcRoleID!)) {
+                        await reaction.message.guild!.members.cache.get(user.id)!.roles.add(roleConstants.pcRoleID!);
                         console.log(`Added PC role to ${user.username}`);
                     }
                     return;
