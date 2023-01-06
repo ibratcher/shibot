@@ -16,13 +16,12 @@ module.exports = {
                 console.log(`Removed mobile role from ${user.username}`);
                 return;
             }
-            if(reaction.emoji.name === "♂️️") {
+            if(reaction.emoji.name === "♂️") {
                 await reaction.message.guild!.members.cache.get(user.id)!.roles.remove(consts.maleRoleID!);
                 console.log(`Removed male role from ${user.username}`);
                 return;
             }
-            //TODO fix female emoji not being removed
-            if(reaction.emoji.name === "️♀️") {
+            if(reaction.emoji.name === "♀️") {
                 await reaction.message.guild!.members.cache.get(user.id)!.roles.remove(consts.femaleRoleID!);
                 console.log(`Removed female role from ${user.username}`);
                 return;

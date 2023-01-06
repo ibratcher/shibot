@@ -23,8 +23,7 @@ module.exports = {
                 console.log(`Added male role to ${user.username}`);
                 return;
             }
-            //TODO fix female emoji not being added.
-            if(reaction.emoji.name === "️♀️") {
+            if(reaction.emoji.name === "♀️") {
                 await reaction.message.guild!.members.cache.get(user.id)!.roles.add(consts.femaleRoleID!);
                 console.log(`Added female role to ${user.username}`);
                 return;
