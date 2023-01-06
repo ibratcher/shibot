@@ -1,5 +1,6 @@
 import {Events, MessageReaction, User} from "discord.js";
 import * as roleConstants from "./messageReactionImports";
+import * as consts from "./messageReactionImports";
 
 module.exports = {
     name: Events.MessageReactionRemove,
@@ -82,7 +83,20 @@ module.exports = {
                     console.log(`Removed PC role from ${user.username}`)
                     return;
                 }
-
+                case consts.genderfluidEmojiID: {
+                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.genderfluidRoleID!)) {
+                        await reaction.message.guild!.members.cache.get(user.id)!.roles.remove(consts.genderfluidRoleID!);
+                        console.log(`Removed genderfluid role from ${user.username}`);
+                    }
+                    return;
+                }
+                case consts.nonbinaryEmojiID: {
+                    if (!reaction.message.guild!.members.cache.get(user.id)!.roles.cache.has(consts.nonbinaryRoleID!)) {
+                        await reaction.message.guild!.members.cache.get(user.id)!.roles.remove(consts.nonbinaryRoleID!);
+                        console.log(`Removed nonbinary role from ${user.username}`);
+                    }
+                    return;
+                }
                 default: {
                     console.log('No role found.');
                     return;

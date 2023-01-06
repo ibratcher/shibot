@@ -20,5 +20,9 @@ export const switchEmojiID = process.env["SWITCH_EMOJI_ID"],
 
 export const maleRoleID = process.env["MALE_ROLE_ID"],
     femaleRoleID = process.env["FEMALE_ROLE_ID"],
+    genderfluidEmojiID = process.env["GENDERFLUID_EMOJI_ID"],
+    genderfluidRoleID = process.env["GENDERFLUID_ROLE_ID"],
+    nonbinaryEmojiID = process.env["NONBINARY_EMOJI_ID"],
+    nonbinaryRoleID = process.env["NONBINARY_ROLE_ID"],
     transRoleID = process.env["TRANS_ROLE_ID"],
     rnsGenderRoleID = process.env["RNS_GENDER_ROLE_ID"];
