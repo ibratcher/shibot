@@ -12,6 +12,6 @@
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.4"
   }
 }
